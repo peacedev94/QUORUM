@@ -1,7 +1,5 @@
 import React from "react";
 import { NotificationIcon, VoteIcon } from "../../assets/Icon";
-//Bottom Nav Icons
-import BottomNav from "../../Components/WALLET/BottomNav";
 
 const Wallet = () => {
   const transactions = [
@@ -101,11 +99,6 @@ const Wallet = () => {
             <p className="text-[#F4B400] font-semibold">{tx.amount}</p>
           </div>
         ))}
-      </div>
-
-      {/* Bottom Navigation */}
-      <div>
-        <BottomNav />
       </div>
     </div>
   );

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-//Bottom Nav Icons
-import BottomNav from "../../Components/WALLET/BottomNav";
 
 const WalletCoin = () => {
   const [selected, setSelected] = useState(null);
@@ -61,7 +59,7 @@ const WalletCoin = () => {
       <div className="mt-18">
         <button
           disabled={selected === null}
-          className={`w-full font-medium py-5 rounded-lg transition
+          className={`w-full font-medium py-5 rounded-lg transition text-base
             ${selected === null
               ? "bg-gray-600 text-gray-300 cursor-not-allowed"
               : "bg-[#F4B400] text-black"
@@ -70,11 +68,6 @@ const WalletCoin = () => {
         >
           Continue to Payment
         </button>
-      </div>
-
-      {/* Bottom Navigation */}
-      <div>
-        <BottomNav />
       </div>
     </div>
   );
