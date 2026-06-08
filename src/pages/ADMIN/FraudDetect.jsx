@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import {React, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { MultipleVotesIcon, PaymentDiscrepancyIcon } from "../../assets/Icon";
 import AdminHeader from "../../Components/ADMIN/AdminHeader";
