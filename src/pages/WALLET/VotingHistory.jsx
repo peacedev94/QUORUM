@@ -24,7 +24,7 @@ const VotingHistory = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-[#F8FAFC] px-5 pt-20">
+    <div className="min-h-screen bg-[#0A0A12] text-[#F8FAFC] px-4 pt-20">
       {/* Header */}
       <div
         className="absolute top-10 left-6 text-[#D1BCFF] cursor-pointer"
@@ -33,7 +33,7 @@ const VotingHistory = () => {
         <BackArrowIcon />
       </div>
 
-      <h1 className="text-center pt-10 text-[32px] font-semibold mb-24">
+      <h1 className="text-center pt-8 text-[32px] font-semibold mb-14">
         Voting History
       </h1>
 
@@ -45,7 +45,7 @@ const VotingHistory = () => {
               <img
                 src={profile}
                 alt={vote.candidate}
-                className="w-14 h-14 rounded-full object-cover"
+                className="w-20 h-20 rounded-full object-cover"
               />
 
               <div>
@@ -57,7 +57,7 @@ const VotingHistory = () => {
               </div>
             </div>
 
-            <div className="mt-4 border-b border-[#7B3FF2]"></div>
+            <div className="mt-4 border-b-2 border-[#7B3FF2]/80"></div>
           </div>
         ))}
       </div>

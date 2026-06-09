@@ -13,9 +13,9 @@ const BottomNav = () => {
   const [activeTab, setActiveTab] = useState("home");
 
   const navItems = [
-    { id: "home", label: "Home", icon: HomeIcon, path:"/", },
-    { id: "leaderboard", label: "Leaderboard", icon: LeaderboardIcon, path:"/", },
-    { id: "votes", label: "Votes", icon: VoteIcon, path:"/", },
+    { id: "home", label: "Home", icon: HomeIcon, path:"/voting", },
+    { id: "leaderboard", label: "Leaderboard", icon: LeaderboardIcon, path:"/leaderboard", },
+    { id: "votes", label: "Votes", icon: VoteIcon, path:"/categories", },
     { id: "wallet", label: "Wallet", icon: WalletIcon, path:"/wallet",},
     { id: "profile", label: "Profile", icon: UserIcon, path:"/profile" },
   ];

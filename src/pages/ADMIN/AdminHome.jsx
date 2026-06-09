@@ -45,7 +45,7 @@ export default function AdminHome() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white">
+    <div className="min-h-screen bg-[#0A0A12] text-white">
       {/* Sidebar */}
       <SideBar isOpen={isOpen} setIsOpen={setIsOpen}  className="-[#D1BCFF]" />
 

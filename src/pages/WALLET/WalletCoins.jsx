@@ -7,7 +7,7 @@ const WalletCoin = () => {
   const [selected, setSelected] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#0F172A] relative text-[#F8FAFC] px-6 pt-6 pb-24">
+    <div className="min-h-screen bg-[#0A0A12] relative text-[#F8FAFC] px-6 pt-6 pb-24">
       {/* Header */}
       <div
         className="absolute top-8 left-6 text-[#D1BCFF] cursor-pointer"

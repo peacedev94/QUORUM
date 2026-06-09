@@ -1,10 +1,13 @@
-import React from "react";
+import {React, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import AdminHeader from "../../Components/ADMIN/AdminHeader";
 import profile from "../../assets/Images/profile.png";
 import { SearchIcon } from "../../assets/Icon";
+import SideBar from "../../Components/ADMIN/SideBar";
 
 const User = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const users = [
@@ -22,7 +25,12 @@ const User = () => {
 
   return (
     <div className="min-h-screen bg-[#0A0A12] text-white px-2 pb-24">
-      <AdminHeader />
+      <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <div className="flex items-center justify-between mb-10">
+        <button>
+          <AdminHeader setIsOpen={setIsOpen} />
+        </button>
+      </div>
 
       {/* Search */}
       <div className="relative mt-24">
@@ -52,13 +60,9 @@ const User = () => {
               />
 
               <div>
-                <h3 className="font-semibold text-lg ">
-                  {user.name}
-                </h3>
+                <h3 className="font-semibold text-lg ">{user.name}</h3>
 
-                <p className="text-sm text-white/60">
-                  {user.email}
-                </p>
+                <p className="text-sm text-white/60">{user.email}</p>
               </div>
             </div>
 

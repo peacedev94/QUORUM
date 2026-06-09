@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState } from "react";
 import {
   PlatformcoinIcon,
   PayIcon,
@@ -7,8 +7,11 @@ import {
   ShieldIcon,
 } from "../../assets/Icon";
 import AdminHeader from "../../Components/ADMIN/AdminHeader";
+import SideBar from "../../Components/ADMIN/SideBar";
 
 export default function Platform() {
+const [isOpen, setIsOpen] = useState(false);
+  
   const settingsItems = [
     {
       title: "General Settings",
@@ -34,10 +37,20 @@ export default function Platform() {
 
   return (
     <div className="min-h-screen bg-[#0A0A12] text-white px-4">
+       {/* Sidebar */}
+            <SideBar isOpen={isOpen} setIsOpen={setIsOpen}  className="-[#D1BCFF]" />
+      
+            {/* Overlay */}
+            {isOpen && (
+              <div
+                onClick={() => setIsOpen(false)}
+                className="fixed inset-0 bg-black/50 z-40"
+              />
+            )}
       {/* Header */}
       <div className="flex items-center justify-between">
         <button>
-          <AdminHeader />
+          <AdminHeader setIsOpen={setIsOpen} />
         </button>
       </div>
 
