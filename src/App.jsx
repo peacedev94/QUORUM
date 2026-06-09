@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 // Voting Pages
 import QuorumVotingHome from "./Pages/Voting/QuorumVotingHome";
@@ -49,6 +49,7 @@ import NomineesManagement from "./pages/organizers/NomineesManagement.jsx";
 import RevenueOverview from "./pages/organizers/RevenueOverview.jsx";
 
 function App() {
+  const navigate = useNavigate();
 
   return (
     <Routes>
@@ -78,8 +79,11 @@ function App() {
       <Route path="/nominees/:id/vote-success" element={<VoteSuccess />} />
       <Route path="/nominees/:id/receipt" element={<VotingReceipt />} />
 
+      {/* Wallet (with AppLayout) */}
+      <Route element={<AppLayout />} />
+
       {/* Wallet Routes Wrapper */}
-      <Route element={<AppLayout />}>
+      <Route path="" element={<AppLayout />}>
         <Route path="/wallet" element={<WalletHome />} />
         <Route path="/wallet-coins" element={<WalletCoins />} />
         <Route path="/wallet-pay" element={<WalletPay />} />
