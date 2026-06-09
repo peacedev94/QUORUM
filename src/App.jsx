@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // Voting Pages
 import QuorumVotingHome from "./Pages/Voting/QuorumVotingHome";
@@ -49,7 +49,6 @@ import NomineesManagement from "./pages/organizers/NomineesManagement.jsx";
 import RevenueOverview from "./pages/organizers/RevenueOverview.jsx";
 
 function App() {
-  const navigate = useNavigate();
 
   return (
     <Routes>
@@ -68,16 +67,19 @@ function App() {
       <Route path="/nominees/:id" element={<NomineeDetailPage />} />
       <Route path="/nominees/:id/select-votes" element={<SelectVotes />} />
       <Route path="/nominees/:id/processing" element={<Processing />} />
-      <Route path="/nominees/:id/campaign-paused" element={<CampaignPaused />} />
-      <Route path="/nominees/:id/insufficient-coins" element={<InsufficientCoins />} />
+      <Route
+        path="/nominees/:id/campaign-paused"
+        element={<CampaignPaused />}
+      />
+      <Route
+        path="/nominees/:id/insufficient-coins"
+        element={<InsufficientCoins />}
+      />
       <Route path="/nominees/:id/vote-success" element={<VoteSuccess />} />
       <Route path="/nominees/:id/receipt" element={<VotingReceipt />} />
 
-      {/* Wallet (with AppLayout) */}
-      <Route element={<AppLayout />}>
-
       {/* Wallet Routes Wrapper */}
-      <Route path="" element={<AppLayout />}>
+      <Route element={<AppLayout />}>
         <Route path="/wallet" element={<WalletHome />} />
         <Route path="/wallet-coins" element={<WalletCoins />} />
         <Route path="/wallet-pay" element={<WalletPay />} />
@@ -105,10 +107,16 @@ function App() {
       {/* Organizer Flow Module Base */}
       <Route path="/organizer/dashboard" element={<TestDash />} />
       <Route path="/organizer/create-event" element={<CreateEvent />} />
-      <Route path="/organizer/manage-categories" element={<ManageCategories />} />
+      <Route
+        path="/organizer/manage-categories"
+        element={<ManageCategories />}
+      />
       <Route path="/organizer/add-nominee" element={<AddNominee />} />
-      <Route path="/organizer/nominees-management" element={<NomineesManagement />} />
-      <Route path="/organizer/revenue" element={<RevenueOverview />} /> 
+      <Route
+        path="/organizer/nominees-management"
+        element={<NomineesManagement />}
+      />
+      <Route path="/organizer/revenue" element={<RevenueOverview />} />
     </Routes>
   );
 }
