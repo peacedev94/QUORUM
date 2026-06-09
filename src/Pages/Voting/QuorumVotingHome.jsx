@@ -5,13 +5,15 @@ import { Sun, Bell } from "lucide-react";
 import SearchBar from "../../Components/Voting/SearchBar";
 import NomineeCard from "../../Components/Voting/NomineeCard";
 import CategoryRow from "../../Components/Voting/CategoryRow";
-import Button from "../../Components/Voting/Button";
+// import Button from "../../Components/Voting/Button";
+import Banner from "../../assets/Images/Banner.png";
 
-import { trendingNominees, topCategories } from "../../Data/VotingData";
+import { trendingNominees, topCategories, getLeader } from "../../Data/VotingData";
 
 function QuorumVotingHome() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const leader = getLeader();
 
   // filter trending nominees by search
   const filteredTrending = useMemo(() => {
@@ -63,21 +65,21 @@ function QuorumVotingHome() {
         </div>
 
         {/* Campaign Banner */}
-        <div className="relative mt-8 flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-[rgba(58,111,216,0.3)] bg-[#A6A6A6] px-5 py-16">
-          <div className="pointer-events-none relative items-center gap-3">
-            <div className="mb-1 text-[32px] font-bold tracking-[2px] text-white">
-               Campaign Server
-            </div>
-          </div>
-        </div>
+        <div className="relative mt-8 overflow-hidden rounded-2xl pointer-events-none">
+          <img
+            src={Banner}
+            alt="Vote for your favourite Nominee"
+            className="w-full h-full object-cover rounded-2xl"
+          />
+         </div>
 
         {/* Trending Nominees */}
         <div className="my-6 mb-3 flex items-baseline justify-between">
-          <div className="text-[15px] font-bold">Trending Nominees</div>
+          <div className="text-[35px] font-bold">Trending Nominees</div>
 
           <button
             onClick={() => navigate("/nominees")}
-            className="text-xs font-semibold text-[#6A2EE6]"
+            className="text-lg font-semibold text-[#6A2EE6]"
           >
             View All
           </button>
@@ -95,17 +97,17 @@ function QuorumVotingHome() {
 
         {/* Top Categories */}
         <div className="my-6 mb-3 flex items-baseline justify-between">
-          <div className="text-[15px] font-bold">Top Categories</div>
+          <div className="text-[35px] font-bold">Top Categories</div>
 
           <button
             onClick={() => navigate("/categories")}
-            className="text-xs font-semibold text-[#6A2EE6]"
+            className="text-lg font-semibold text-[#6A2EE6]"
           >
             View All
           </button>
         </div>
 
-        <div className="space-y-3">
+        <div className="flex gap-24 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden">
           {topCategories.map((cat) => (
             <CategoryRow
               key={cat.id}
@@ -118,12 +120,45 @@ function QuorumVotingHome() {
           ))}
         </div>
 
-        {/* Quick action */}
-        <div className="mt-6">
-          <Button variant="secondary" fullWidth onClick={() => navigate("/categories")}>
-            Leaderboard Preview 
-          </Button>
+        {/* Leaderboard Preview */}
+        <div className="mt-6 mb-3 text-[35px] font-bold">Leaderboard Preview</div>
+        <div
+          onClick={() => navigate("/leaderboard")}
+          className="flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0d1f3c] px-4 py-12 cursor-pointer"
+          style={{ borderLeft: "4px solid #6A2EE6" }}
+        >
+          {/* Avatar with trophy badge */}
+          <div className="relative shrink-0">
+            <img
+              src={leader.img}
+              alt={leader.name}
+              className="w-18 h-18 rounded-full object-cover border-2 border-white/10"
+            />
+            <span className="absolute -top-1 right-0 text-md">🏆</span>
+          </div>
+
+          {/* Name + category */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-[25px] font-bold text-white">{leader.name}</span>
+              <span className="text-[15px] font-bold px-2 py-0.5 rounded-full bg-[rgba(201,168,76,0.2)] text-[#e8c97a] border border-[rgba(201,168,76,0.3)]">
+                LEADING
+              </span>
+            </div>
+            <div className="text-[15px] text-[#8a94a8] mt-0.5">{leader.category}</div>
+          </div>
+
+          {/* Votes + trending */}
+          <div className="text-right shrink-0">
+            <div className="text-[28px] font-bold text-white">
+              {leader.votes >= 1000
+                ? `${(leader.votes / 1000).toFixed(1)}k`
+                : leader.votes}
+            </div>
+            <div className="text-[16px] font-semibold text-[#4ade80]">+1.2k trending</div>
+          </div>
         </div>
+
       </div>
     </div>
   );

@@ -1,16 +1,19 @@
-export default function CategoryRow({ label, img, onClick }) {
+function CategoryRow({ label, img, onClick }) {
   return (
-    <button
+    <div
       onClick={onClick}
-      className="flex w-full items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3"
-      type="button"
+      className="flex flex-col items-center gap-2 cursor-pointer shrink-0 w-46"
     >
-      <div className="flex items-center gap-3 min-w-0">
-        <img src={img} alt={label} className="h-9 w-9 object-contain" />
-        <p className="truncate text-sm font-semibold text-white/90">{label}</p>
+      <div className="w-46 h-46 rounded-full overflow-hidden border-2 border-white/10 bg-white/5">
+        <img
+          src={img}
+          alt={label}
+          className="w-full h-full object-cover"
+        />
       </div>
-
-      <span className="text-lg text-white/40">{">"}</span>
-    </button>
+      <p className="text-[14px] text-center text-[#8a94a8] leading-tight max-w-18">{label}</p>
+    </div>
   );
 }
+
+export default CategoryRow;
