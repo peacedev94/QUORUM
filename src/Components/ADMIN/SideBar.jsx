@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import quorum from "../../assets/Images/quorum.png";
 import { SidebarIcon } from "../../assets/Icon";
 import {
-  QuorumIcon,
   SearchIcon,
   LayoutgridIcon,
   MegaphoneIcon,

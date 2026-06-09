@@ -1,42 +1,13 @@
 import React from "react";
 import { NotificationIcon, VoteIcon } from "../../assets/Icon";
 import { useNavigate } from "react-router-dom";
+import {transactions} from "../../Data/Transaction"
 
 const Wallet = () => {
   const navigate = useNavigate();
-
-  const transactions = [
-    {
-      title: "Vote Deduction",
-      date: "20 May 2025",
-      amount: "-5 Coins",
-      type: "debit",
-    },
-
-    {
-      title: "Vote Deduction",
-      date: "20 May 2025",
-      amount: "-5 Coins",
-      type: "debit",
-    },
-
-    {
-      title: "Vote Deduction",
-      date: "20 May 2025",
-      amount: "-5 Coins",
-      type: "debit",
-    },
-
-    {
-      title: "Vote Deduction",
-      date: "20 May 2025",
-      amount: "-5 Coins",
-      type: "debit",
-    },
-  ];
-
+const  recentTransactions = transactions.slice(0, 4);
   return (
-    <div className="min-h-screen bg-[#0F172A] relative text-white flex flex-col px-5 pt-10 pb-24">
+    <div className="min-h-screen bg-[#0A0A12] relative text-white flex flex-col px-5 pt-10 pb-24">
       {/* Header */}
       <div className="flex justify-between items-start">
         <div>
@@ -47,7 +18,7 @@ const Wallet = () => {
         </div>
         <div
           className="cursor-pointer absolute right-6 top-10"
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/notification")}
         >
           <NotificationIcon />
         </div>
@@ -95,7 +66,7 @@ const Wallet = () => {
 
       {/* Transactions List */}
       <div>
-        {transactions.map((tx, index) => (
+        {recentTransactions.map((tx, index) => (
           <div
             key={index}
             className="flex justify-between items-center py-3 border-b border-gray-600"

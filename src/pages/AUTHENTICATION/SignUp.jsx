@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import google from "../../assets/Images/google.png"
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ export default function SignUp() {
     setSuccess("Account created successfully! Redirecting...");
 
     setTimeout(() => {
-      navigate("/signin");
+      navigate("/vote");
     }, 2000);
   };
 
@@ -249,7 +250,7 @@ export default function SignUp() {
 
           {/* GOOGLE */}
           <button className="w-full text-lg h-12 border border-[#7B3FF2] rounded-lg flex items-center justify-center gap-3 hover:bg-white/25 transition">
-            <img src="/Images/google.png" className="w-7 h-7" />
+            <img src={google} className="w-7 h-7" />
             Continue with Google
           </button>
 

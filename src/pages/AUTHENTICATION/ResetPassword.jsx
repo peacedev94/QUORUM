@@ -60,7 +60,7 @@ export default function ResetPassword() {
     setSuccess("Password reset successfully! Redirecting to login...");
 
     setTimeout(() => {
-      navigate("/signin");
+      navigate("/sign-in");
     }, 2500);
   };
 
@@ -245,7 +245,7 @@ export default function ResetPassword() {
           {/* Back to Login */}
           <button
             type="button"
-            onClick={() => navigate("/signin")}
+            onClick={() => navigate("/sign-in")}
             className="w-full py-3 text-xl rounded-lg border border-[#7B3FF2] hover:bg-white/10 transition"
           >
             Back to Log In

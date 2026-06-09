@@ -3,42 +3,13 @@ import { CoinsIcon, RefreshCw } from "../../assets/Icon";
 import { XCircleIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { BackArrowIcon } from "../../assets/Icon";
+import {transactions} from "../../Data/Transaction"
 
 
 const TransactionHistory = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("all");
 
-  const transactions = [
-    {
-      title: "Coin Purchase",
-      date: "20 May 2025",
-      amount: "+100 Coins",
-      type: "credit",
-      status: "Successful",
-    },
-    {
-      title: "Coin Purchase",
-      date: "20 May 2025",
-      amount: "+100 Coins",
-      type: "credit",
-      status: "Successful",
-    },
-    {
-      title: "Coin Purchase",
-      date: "20 May 2025",
-      amount: "+100 Coins",
-      type: "credit",
-      status: "Successful",
-    },
-    {
-      title: "Coin Purchase",
-      date: "20 May 2025",
-      amount: "+100 Coins",
-      type: "credit",
-      status: "Failed",
-    },
-  ];
 
   const filteredTransactions =
     activeTab === "all"

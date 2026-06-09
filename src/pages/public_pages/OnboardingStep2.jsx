@@ -6,10 +6,10 @@ const OnboardingStep2 = () => {
   const walletAsset = '/src/assets/icons/Gemini_Generated_Image_vlh3edvlh3edvlh3 1.png';
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
+    <div className="min-h-screen bg-[#0A0A12] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
       <div className="flex justify-end">
         <button 
-          onClick={() => navigate("/wallet")}
+          onClick={() => navigate("/sign-in")}
           className="text-[15px] font-medium text-[#7B3FF2] hover:text-purple-400 transition-colors cursor-pointer"
         >
           Skip

@@ -13,7 +13,7 @@ const SplashScreen1 = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white flex flex-col items-center justify-center px-5 relative antialiased select-none">
+    <div className="min-h-screen bg-[#0A0A12] text-white flex flex-col items-center justify-center px-5 relative antialiased select-none">
       <div className="flex items-center justify-center space-x-4">
         <img src={logoIcon} alt="Quorum Icon" className="h-16 w-auto object-contain" draggable="false" />
         <span className="text-xl font-semibold tracking-wide uppercase font-sans">Quorum</span>

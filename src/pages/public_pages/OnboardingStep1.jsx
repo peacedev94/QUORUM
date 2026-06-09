@@ -5,7 +5,7 @@ const OnboardingStep1 = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
+    <div className="min-h-screen bg-[#0A0A12] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
       <div className="flex justify-end">
         <button 
           onClick={() => navigate("/wallet")}

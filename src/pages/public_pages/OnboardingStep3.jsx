@@ -6,7 +6,7 @@ const OnboardingStep3 = () => {
   const chartAsset = '/src/assets/icons/IMG-20260526-WA0082 1.png';
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
+    <div className="min-h-screen bg-[#0A0A12] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
       <div className="h-6" />
 
       <div className="flex-1 max-h-[180px] w-full flex items-center justify-center my-auto">
@@ -37,14 +37,14 @@ const OnboardingStep3 = () => {
 
         <div className="w-full flex flex-col items-center space-y-3.5">
           <button 
-            onClick={() => navigate("/wallet")}
+            onClick={() => navigate("/sign-in")}
             className="w-full py-3.5 rounded-2xl text-[15px] font-semibold bg-[#7B3FF2] hover:opacity-90 text-white tracking-wide transition-all cursor-pointer shadow-lg"
           >
             Get Started
           </button>
 
           <button 
-            onClick={() => navigate("/wallet")}
+            onClick={() => navigate("/awards")}
             className="w-full py-3.5 rounded-2xl text-[15px] font-semibold bg-[#F4B400] hover:opacity-90 text-[#0B0F19] tracking-wide transition-all cursor-pointer shadow-lg"
           >
             Explore Awards

@@ -12,7 +12,7 @@ const SplashScreen2 = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
+    <div className="min-h-screen bg-[#0A0A12] text-white flex flex-col justify-between px-5 pt-10 pb-24 relative antialiased select-none">
       <div className="h-6" />
 
       <div className="flex flex-col items-center justify-center text-center px-4 my-auto">

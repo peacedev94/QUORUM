@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import google from "../../assets/Images/google.png"
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ export default function SignIn() {
     setSuccess("Welcome back! Redirecting...");
 
     setTimeout(() => {
-      navigate("/");
+      navigate("/voting");
     }, 2000);
   };
 
@@ -185,7 +186,7 @@ export default function SignIn() {
           <div className="text-right">
             <span
               onClick={() => navigate("/reset-password")}
-              className="text-yellow-400 text-base underline"
+              className="text-yellow-400 text-base underline cursor-pointer"
             >
               Reset Password
             </span>
@@ -215,8 +216,11 @@ export default function SignIn() {
         </div>
 
         {/* GOOGLE BUTTON */}
-        <button className="w-full py-2 border border-[#7B3FF2] rounded-lg flex items-center justify-center gap-3 hover:bg-white/25 transition">
-          <img src="/Images/google.png" alt="google" className="w-7 h-7" />
+        <button
+          onClick={() => navigate("/google")}
+          className="w-full py-2 border border-[#7B3FF2] rounded-lg flex items-center justify-center gap-3 hover:bg-white/25 transition"
+        >
+          <img src={google} alt="google" className="w-7 h-7" />
           Continue with Google
         </button>
 
