@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 // Voting Pages
 import QuorumVotingHome from "./Pages/Voting/QuorumVotingHome";
@@ -21,6 +21,14 @@ import PaymentProcess from "./pages/WALLET/PaymentProcess";
 import TransactionHistory from "./pages/WALLET/TransactionHistory";
 import VotingHistory from "./pages/WALLET/VotingHistory";
 import Profile from "./pages/WALLET/Profile";
+import AdminHome from "./pages/ADMIN/AdminHome";
+import FraudDetect from "./pages/ADMIN/FraudDetect";
+import UserMgt from "./pages/ADMIN/UserMgt";
+import TransMonitor from "./pages/ADMIN/TransMonitor";
+import Platform from "./pages/ADMIN/Platform";
+import SignIn from "./pages/AUTHENTICATION/SignIn";
+import SignUp from "./pages/AUTHENTICATION/SignUp";
+import ResetPassword from "./pages/AUTHENTICATION/ResetPassword";
 
 // Layout
 import AppLayout from "./Layouts/AppLayout";
@@ -41,9 +49,11 @@ import NomineesManagement from "./pages/organizers/NomineesManagement.jsx";
 import RevenueOverview from "./pages/organizers/RevenueOverview.jsx";
 
 function App() {
+  const navigate = useNavigate();
+
   return (
     <Routes>
-      {/* Splash & Onboarding */}
+      {/* Splash & Onboarding Routes */}
       <Route path="/" element={<SplashScreen1 />} />
       <Route path="/splash-2" element={<SplashScreen2 />} />
       <Route path="/onboarding-1" element={<OnboardingStep1 />} />
@@ -65,24 +75,40 @@ function App() {
 
       {/* Wallet (with AppLayout) */}
       <Route element={<AppLayout />}>
+
+      {/* Wallet Routes Wrapper */}
+      <Route path="" element={<AppLayout />}>
         <Route path="/wallet" element={<WalletHome />} />
         <Route path="/wallet-coins" element={<WalletCoins />} />
         <Route path="/wallet-pay" element={<WalletPay />} />
       </Route>
 
-      {/* Wallet (standalone) */}
+      {/* General App Routes */}
       <Route path="/payment-process" element={<PaymentProcess />} />
       <Route path="/transaction-history" element={<TransactionHistory />} />
       <Route path="/voting-history" element={<VotingHistory />} />
       <Route path="/profile" element={<Profile />} />
 
       {/* Organizer */}
+      {/* Admin Module Routes */}
+      <Route path="/admin" element={<AdminHome />} />
+      <Route path="/fraud-detect" element={<FraudDetect />} />
+      <Route path="/user-mgt" element={<UserMgt />} />
+      <Route path="/trans-monitor" element={<TransMonitor />} />
+      <Route path="/platform" element={<Platform />} />
+
+      {/* Authentication Routes */}
+      <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+
+      {/* Organizer Flow Module Base */}
       <Route path="/organizer/dashboard" element={<TestDash />} />
       <Route path="/organizer/create-event" element={<CreateEvent />} />
       <Route path="/organizer/manage-categories" element={<ManageCategories />} />
       <Route path="/organizer/add-nominee" element={<AddNominee />} />
       <Route path="/organizer/nominees-management" element={<NomineesManagement />} />
-      <Route path="/organizer/revenue" element={<RevenueOverview />} />
+      <Route path="/organizer/revenue" element={<RevenueOverview />} /> 
     </Routes>
   );
 }
