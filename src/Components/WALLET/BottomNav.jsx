@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   HomeIcon,
   LeaderboardIcon,
@@ -10,11 +10,27 @@ import {
 
 const BottomNav = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState("home");
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path.startsWith("/wallet")) {
+      setActiveTab("wallet");
+    } else if (path.startsWith("/profile")) {
+      setActiveTab("profile");
+    } else if (path === "/leaderboard") {
+      setActiveTab("leaderboard");
+    } else if (path === "/") {
+      setActiveTab((prev) =>
+        ["home", "votes"].includes(prev) ? prev : "home"
+      );
+    }
+  }, [location.pathname]);
 
   const navItems = [
     { id: "home", label: "Home", icon: HomeIcon, path:"/", },
-    { id: "leaderboard", label: "Leaderboard", icon: LeaderboardIcon, path:"/", },
+    { id: "leaderboard", label: "Leaderboard", icon: LeaderboardIcon, path:"/leaderboard", },
     { id: "votes", label: "Votes", icon: VoteIcon, path:"/", },
     { id: "wallet", label: "Wallet", icon: WalletIcon, path:"/wallet",},
     { id: "profile", label: "Profile", icon: UserIcon, path:"/profile" },

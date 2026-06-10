@@ -3,6 +3,7 @@ import WalletHome from "./pages/WALLET/WalletHome";
 import AppLayout from "./Layouts/AppLayout";
 import WalletCoins from "./pages/WALLET/WalletCoins";
 import WalletPay from "./pages/WALLET/WalletPay";
+import Leaderboard from "./pages/LEADERBOARD/Leaderboard";
 import PaymentProcess from "./pages/WALLET/PaymentProcess";
 import TransactionHistory from "./pages/WALLET/TransactionHistory";
 import VotingHistory from "./pages/WALLET/VotingHistory";
@@ -18,6 +19,7 @@ function App() {
   return (
     <Routes>
       <Route path="" element={<AppLayout />}>
+        <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/wallet" element={<WalletHome />} />
         <Route path="/wallet-coins" element={<WalletCoins />} />
         <Route path="/wallet-pay" element={<WalletPay />} />
