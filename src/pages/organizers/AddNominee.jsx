@@ -5,15 +5,15 @@ const AddNominee = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#090A10] text-white flex flex-col px-5 pt-12 pb-10 antialiased select-none">
+    <div className="min-h-screen bg-[#0A0A12] text-white flex flex-col px-5 pt-12 pb-10 antialiased select-none">
       
       {/* Back Arrow Navigation */}
       <div className="mb-6">
         <button 
           onClick={() => navigate("/organizer/dashboard")} 
-          className="text-[#7F4DFF] hover:opacity-80 transition-opacity cursor-pointer focus:outline-none"
+          className=" hover:opacity-80 transition-opacity cursor-pointer focus:outline-none"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+          <svg className="w-5 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
         </button>
@@ -25,7 +25,8 @@ const AddNominee = () => {
       </div>
 
       {/* Form Fields Stack */}
-      <div className="space-y-6 flex-1">
+
+      <div className="space-y-6  bg-[#0A0A12] flex-1">
         
         {/* Category Dropdown Selector */}
         <div>
@@ -34,7 +35,7 @@ const AddNominee = () => {
           </label>
           <div className="relative">
             <select 
-              className="w-full bg-[#0E0F19] border border-[#2E305E] focus:border-[#7F4DFF] rounded-xl py-4 px-4 text-gray-500 outline-none appearance-none cursor-pointer transition-colors"
+              className="w-full bg-[#0A0A12] border border-[#2E305E] focus:border-[#7F4DFF] rounded-xl py-4 px-4 text-gray-500 outline-none appearance-none cursor-pointer transition-colors"
               defaultValue=""
             >
               <option value="" disabled hidden>Select Category</option>
@@ -95,7 +96,8 @@ const AddNominee = () => {
 
       {/* Full Width Primary Bottom Call-To-Action Button */}
       <div className="mt-8">
-        <button className="w-full bg-[#7F4DFF] hover:bg-[#6A3BE6] active:scale-[0.99] text-white font-medium py-4 rounded-xl transition-all shadow-lg text-center tracking-wide text-base cursor-pointer">
+        <button           onClick={() => navigate("")} 
+ className="w-full bg-[#7F4DFF] hover:bg-[#6A3BE6] active:scale-[0.99] text-white font-medium py-4 rounded-xl transition-all shadow-lg text-center tracking-wide text-base cursor-pointer">
           Add Nominee
         </button>
       </div>

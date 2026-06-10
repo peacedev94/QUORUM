@@ -6,7 +6,7 @@ import Best_Album_Logo from "../assets/Images/Best_Album.png";
 
 // ── Nominee images
 import BurnaBoy from "../assets/Images/BurnaBoy.png";
-import Davido from "../assets/Images/Background.png";
+import Davido from "../assets/Images/Davido.png";
 import Wizkid from "../assets/Images/Wizkid.png";
 import Asake from "../assets/Images/Asake.png";
 import Tems from "../assets/Images/Tems.png";

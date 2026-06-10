@@ -13,7 +13,7 @@ export default function AdminHeader({ setIsOpen }) {
       </button>
       <div
         className="cursor-pointer absolute text-[#D1BCFF] right-6 top-8"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/notification")}
       >
         <NotificationIcon />
       </div>

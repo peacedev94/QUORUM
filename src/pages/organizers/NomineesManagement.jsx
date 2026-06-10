@@ -6,7 +6,27 @@ const NomineesManagement = () => {
 
   return (
     <div className="min-h-screen bg-[#090A10] text-white flex flex-col px-5 pt-12 pb-10 antialiased select-none">
-      
+       {/* Back Arrow Navigation */}
+      <div className="mb-6">
+        <button
+          onClick={() => navigate("/organizer/dashboard")}
+          className="text-white hover:opacity-80 transition-opacity cursor-pointer focus:outline-none"
+        >
+          <svg
+            className="w-5 h-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+        </button>
+        </div>
       {/* Page Title Header Header */}
       <div className="mb-6">
         <h1 className="text-[28px] font-bold tracking-tight text-white">Analytics</h1>

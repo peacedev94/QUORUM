@@ -1,15 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { categories, contestants } from "../../Data/LeaderboardData";
-import { BackArrowIcon, TrophyIcon } from "../../assets/Icon";
-import { DotIcon } from "../../assets/icon";
+import {DotIcon, BackArrowIcon, TrophyIcon, MedalIcon, StarIcon } from "../../assets/Icon";
 
 export default function LeaderBoard() {
   const navigate = useNavigate();
   const [showAll, setShowAll] = useState(false);
   const [activeCategory, setActiveCategory] = useState("all");
   const getRankBadge = (rank) => {
-    if (rank === 1) return <TrophyIcon className="text-yellow-400" />;
+    if (rank === 1) return <TrophyIcon />;
     if (rank === 2) return <span></span>;
     if (rank === 3) return <span></span>;
     return <span className="text-gray-400">#{rank}</span>;
@@ -20,16 +19,19 @@ export default function LeaderBoard() {
     activeCategory === "all"
       ? contestants
       : contestants.filter((item) => item.category === activeCategory);
-  const displayContestants = showAll
-    ? filteredContestants
-    : filteredContestants.slice(0, 6);
+  const displayContestants =
+    showAll || filteredContestants.length <= 6
+      ? filteredContestants
+      : filteredContestants.slice(0, 6);
+  const hasNoResults = filteredContestants.length === 0;
+
   return (
     <div className="h-screen w-full bg-[#0A0A12] text-[#E7E0EE] overflow-x-hidden pb-46 flex flex-col">
       {/* ================= FIXED HEADER ================= */}
       <div className=" top-0 left-0 right-0 z-50  border-b border-[#ffffff]/20 mr-18 px-4 py-6">
         <div className="flex items-center pt-3 gap-2">
           <div className="flex items-center gap-4">
-            <button onClick={() => navigate("/")}>
+            <button onClick={() => navigate(-1)}>
               <BackArrowIcon />
             </button>
 
@@ -86,92 +88,102 @@ export default function LeaderBoard() {
 
         {/* ================= CONTESTANTS (VERTICAL ONLY) ================= */}
         <div className="space-y-3">
-          {displayContestants.map((item, index) => {
-            const rank = index + 1;
+          {hasNoResults ? (
+            <div className="flex flex-col items-center justify-center py-20 text-center">
+              <p className="text-white font-medium  text-2xl">
+                Live campaign not available at the moment. Check back later.
+              </p>
+            </div>
+          ) : (
+            <>
+              {displayContestants.map((item, index) => {
+                const rank = index + 1;
 
-            return (
-              <div
-                key={item.id}
-                className="bg-[#1E293B] rounded-[21px] p-4 border border-[#334155] w-full"
-              >
-                <div className="flex items-center justify-between">
-                  {/* LEFT */}
-                  <div className="flex items-center gap-4 min-w-0">
-                    {/* IMAGE + BADGE */}
-                    <div className="relative w-14 h-14 ">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-14 h-14 rounded-full object-cover"
-                      />
+                return (
+                  <div
+                    key={item.id}
+                    className="bg-[#1E293B] rounded-[21px] p-4 border border-[#334155] w-full"
+                  >
+                    <div className="flex items-center justify-between">
+                      {/* LEFT */}
+                      <div className="flex items-center gap-4 min-w-0">
+                        {/* IMAGE + BADGE */}
+                        <div className="relative w-14 h-14 ">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-14 h-14 rounded-full object-cover"
+                          />
 
-                      {rank === 1 && (
-                        <div className="absolute -top-2 -right-2">
-                          <TrophyIcon className="w-5 h-5 text-yellow-400" />
+                          {rank === 1 && (
+                            <div className="absolute -top-3 -right-5">
+                              <TrophyIcon />
+                            </div>
+                          )}
+
+                          {rank === 2 && (
+                            <div className="absolute -top-3 -right-4"><MedalIcon/> </div>
+                          )}
+
+                          {rank === 3 && (
+                            <div className="absolute -top-3 -right-4"><StarIcon/></div>
+                          )}
                         </div>
-                      )}
 
-                      {rank === 2 && (
-                        <div className="absolute -top-2 -right-2"></div>
-                      )}
+                        {/* NAME + LEADING */}
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2">
+                            <h3 className="font-bold text-xl truncate">
+                              {item.name}
+                            </h3>
 
-                      {rank === 3 && (
-                        <div className="absolute -top-2 -right-2"></div>
-                      )}
-                    </div>
+                            {rank === 1 && (
+                              <span className="bg-[#FDBC13]/20 text-[#FDBC13] text-xs px-2 py-1 rounded-full">
+                                Leading
+                              </span>
+                            )}
+                          </div>
 
-                    {/* NAME + LEADING */}
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <h3 className="font-bold text-xl truncate">
-                          {item.name}
-                        </h3>
-
-                        {rank === 1 && (
-                          <span className="bg-[#FDBC13]/20 text-[#FDBC13] text-xs px-2 py-1 rounded-full">
-                            Leading
-                          </span>
-                        )}
+                          <p className="text-gray-400 text-sm truncate">
+                            {item.title}
+                          </p>
+                        </div>
                       </div>
 
-                      <p className="text-gray-400 text-sm truncate">
-                        {item.title}
-                      </p>
+                      {/* RIGHT */}
+                      <div className="text-right flex-shrink-0">
+                        <h3 className="font-bold text-xl">{item.votes}</h3>
+                        <p
+                          className={
+                            item.change.includes("+")
+                              ? "text-[#4ADE80] text-sm"
+                              : "text-[#F87171] text-sm"
+                          }
+                        >
+                          {item.change}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* PROGRESS */}
+                    <div className="w-full bg-[#344155] h-2 rounded-full mt-4 overflow-hidden">
+                      <div
+                        className="bg-gradient-to-r from-purple-600 to-purple-400 h-2 rounded-full"
+                        style={{ width: `${item.progress}%` }}
+                      />
                     </div>
                   </div>
-
-                  {/* RIGHT */}
-                  <div className="text-right flex-shrink-0">
-                    <h3 className="font-bold text-xl">{item.votes}</h3>
-                    <p
-                      className={
-                        item.change.includes("+")
-                          ? "text-[#4ADE80] text-sm"
-                          : "text-[#F87171] text-sm"
-                      }
-                    >
-                      {item.change}
-                    </p>
-                  </div>
-                </div>
-
-                {/* PROGRESS */}
-                <div className="w-full bg-[#344155] h-2 rounded-full mt-4 overflow-hidden">
-                  <div
-                    className="bg-gradient-to-r from-purple-600 to-purple-400 h-2 rounded-full"
-                    style={{ width: `${item.progress}%` }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-          {contestants.length > 6 && (
+                );
+              })}
+            </>
+          )}
+          {!hasNoResults && filteredContestants.length > 6 && (
             <div className="flex flex-col items-center mt-8 mb-10 text-gray-400">
               {/* TEXT */}
               <p className="text-base text-center">
                 {showAll
-                  ? `Showing all ${contestants.length} nominees`
-                  : `Showing 6 of ${contestants.length} nominees • Scroll to see more`}
+                  ? `Showing all ${filteredContestants.length} nominees`
+                  : `Showing 6 of ${filteredContestants.length} nominees • Scroll to see more`}
               </p>
 
               {/* ARROW BUTTON */}

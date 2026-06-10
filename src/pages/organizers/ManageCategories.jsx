@@ -85,5 +85,4 @@ const ManageCategories = () => {
     </div>
   );
 };
-
 export default ManageCategories;

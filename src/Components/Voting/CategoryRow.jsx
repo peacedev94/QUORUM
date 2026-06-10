@@ -2,16 +2,19 @@ function CategoryRow({ label, img, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="flex flex-col items-center gap-2 cursor-pointer shrink-0 w-46"
+      className="flex flex-col items-center shrink-0 w-full cursor-pointer"
     >
-      <div className="w-46 h-46 rounded-full overflow-hidden border-2 border-white/10 bg-white/5">
+      <div className="w-[80px] h-[80px] rounded-full overflow-hidden">
         <img
           src={img}
           alt={label}
           className="w-full h-full object-cover"
         />
       </div>
-      <p className="text-[14px] text-center text-[#8a94a8] leading-tight max-w-18">{label}</p>
+
+      <p className="mt-2 text-center text-[11px] text-[#A1A1AA] leading-tight">
+        {label}
+      </p>
     </div>
   );
 }

@@ -1,3 +1,18 @@
+import burna from "../assets/Images/BurnaBoy.png"
+import arya from "../assets/Images/Arya.png"
+import rema from "../assets/Images/Rema.png"
+import tems from "../assets/Images/Tems.png"
+import wizkid from "../assets/Images/Wizkid.png"
+import tiwa from "../assets/Images/Tiwa.png"
+import asa from "../assets/Images/Asa.png"
+import omawumi from "../assets/Images/Omawumi.png"
+import asake from "../assets/Images/Asake.png"
+import davido from "../assets/Images/Davido.png"
+import fireboy from "../assets/Images/Fireboy.png"
+import fave from "../assets/Images/Fave.png"
+
+
+
 export const categories = [
   {
     id: "all",
@@ -34,7 +49,7 @@ export const contestants = [
     title: "Best Male Artist",
     votes: "12.4k",
     change: "+1.2k trending",
-    image: "/images/burna.png",
+    image: burna,
     progress: 90,
   },
 
@@ -46,7 +61,7 @@ export const contestants = [
     title: "Best Female Artist",
     votes: "10.1k",
     change: "+800",
-    image: "/images/burna.png",
+    image: arya,
     progress: 80,
   },
 
@@ -58,7 +73,7 @@ export const contestants = [
     title: "Best Male Artist",
     votes: "9.8k",
     change: "-200",
-    image: "/images/rema.png",
+    image: rema,
     progress: 80,
   },
 
@@ -70,7 +85,7 @@ export const contestants = [
     title: "Best Female Artist",
     votes: "9.5k",
     change: "+500",
-    image: "/images/burna.png",
+    image: tems,
     progress: 65,
   },
 
@@ -82,7 +97,7 @@ export const contestants = [
     title: "Best Male Artist",
     votes: "9.2k",
     change: "-150",
-    image: "/images/rema.png",
+    image: davido,
     progress: 70,
   },
 
@@ -94,7 +109,7 @@ export const contestants = [
     title: "Best Female Artist",
     votes: "8.7k",
     change: "-250",
-    image: "/images/burna.png",
+    image: tiwa,
     progress: 60,
   },
 
@@ -106,7 +121,7 @@ export const contestants = [
     title: "Best Male Artist",
     votes: "9.0k",
     change: "-100",
-    image: "/images/rema.png",
+    image: wizkid,
     progress: 65,
   },
 
@@ -118,7 +133,7 @@ export const contestants = [
     title: "Best Female Artist",
     votes: "8.0k",
     change: "-100",
-    image: "/images/burna.png",
+    image: omawumi,
     progress: 55,
   },
 
@@ -130,7 +145,7 @@ export const contestants = [
     title: "Best Male Artist",
     votes: "8.5k",
     change: "+450",
-    image: "/images/rema.png",
+    image: asake,
     progress: 60,
   },
 
@@ -142,7 +157,7 @@ export const contestants = [
     title: "Best Female Artist",
     votes: "7.8k",
     change: "+250",
-    image: "/images/burna.png",
+    image: fave,
     progress: 55,
   },
 
@@ -150,11 +165,11 @@ export const contestants = [
     id: 11,
     category: "male-artist",
     rank: 6,
-    name: "Rema",
+    name: "Fireboy DML",
     title: "Best Male Artist",
     votes: "7.2k",
     change: "-+1.1k",
-    image: "/images/rema.png",
+    image: fireboy,
     progress: 55,
   },
 
@@ -162,11 +177,11 @@ export const contestants = [
     id: 12,
     category: "female-artist",
     rank: 6,
-    name: "Asar",
+    name: "Asa",
     title: "Best Female Artist",
     votes: "7.2k",
     change: "+1k",
-    image: "/images/burna.png",
+    image: asa,
     progress: 50,
   },
 ];

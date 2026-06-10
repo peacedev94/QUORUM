@@ -39,7 +39,7 @@ export default function SignIn() {
     setSuccess("Welcome back! Redirecting...");
 
     setTimeout(() => {
-      navigate("/voting");
+      navigate("/role-select");
     }, 2000);
   };
 
