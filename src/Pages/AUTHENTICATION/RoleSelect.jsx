@@ -9,13 +9,13 @@ const RoleSelect = () => {
   const handleContinue = () => {
     switch (selectedRole) {
       case "voter":
-        navigate("/voting");
+        navigate("/sign-in");
         break;
       case "admin":
-        navigate("/admin");
+        navigate("/sign-in");
         break;
       case "organizer":
-        navigate("/organizer/dashboard");
+        navigate("/sign-in");
         break;
       default:
         alert("Please select a role");
